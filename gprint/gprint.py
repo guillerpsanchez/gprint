@@ -173,7 +173,7 @@ WHITE                       = ["255","255","255"]
 RANDOMIZED = choice([MAROON, DARK_RED, BROWN, FIREBRICK, CRIMSON, RED, TOMATO, CORAL, INDIAN_RED, LIGHT_CORAL, DARK_SALMON, SALMON, LIGHT_SALMON, ORANGE_RED, DARK_ORANGE, ORANGE, GOLD, DARK_GOLDEN_ROD, GOLDEN_ROD, PALE_GOLDEN_ROD, DARK_KHAKI, KHAKI, OLIVE, YELLOW, YELLOW_GREEN, DARK_OLIVE_GREEN, OLIVE_DRAB, LAWN_GREEN, CHART_REUSE, GREEN_YELLOW, DARK_GREEN, GREEN, FOREST_GREEN, LIME, LIME_GREEN, LIGHT_GREEN, PALE_GREEN, DARK_SEA_GREEN, MEDIUM_SPRING_GREEN, SPRING_GREEN, SEA_GREEN, MEDIUM_AQUA_MARINE, MEDIUM_SEA_GREEN, LIGHT_SEA_GREEN, DARK_SLATE_GRAY, TEAL, DARK_CYAN, AQUA, CYAN, LIGHT_CYAN, DARK_TURQUOISE, TURQUOISE, MEDIUM_TURQUOISE, PALE_TURQUOISE, AQUA_MARINE, POWDER_BLUE, CADET_BLUE, STEEL_BLUE, CORN_FLOWER_BLUE, DEEP_SKY_BLUE, DODGER_BLUE, LIGHT_BLUE, SKY_BLUE, LIGHT_SKY_BLUE, MIDNIGHT_BLUE, NAVY, DARK_BLUE, MEDIUM_BLUE, BLUE, ROYAL_BLUE, BLUE_VIOLET, INDIGO, DARK_SLATE_BLUE, SLATE_BLUE, MEDIUM_SLATE_BLUE, MEDIUM_PURPLE, DARK_MAGENTA, DARK_VIOLET, DARK_ORCHID, MEDIUM_ORCHID, PURPLE, THISTLE, PLUM, VIOLET, MAGENTA, ORCHID, MEDIUM_VIOLET_RED, PALE_VIOLET_RED, DEEP_PINK, HOT_PINK, LIGHT_PINK, PINK, ANTIQUE_WHITE, BEIGE, BISQUE, BLANCHED_ALMOND, WHEAT, CORN_SILK, LEMON_CHIFFON, LIGHT_GOLDEN_ROD_YELLOW, LIGHT_YELLOW, SADDLE_BROWN, SIENNA, CHOCOLATE, PERU, SANDY_BROWN, BURLY_WOOD, TAN, ROSY_BROWN, MOCCASIN, NAVAJO_WHITE, PEACH_PUFF, MISTY_ROSE, LAVENDER_BLUSH, LINEN, OLD_LACE, PAPAYA_WHIP, SEA_SHELL, MINT_CREAM, SLATE_GRAY, LIGHT_SLATE_GRAY, LIGHT_STEEL_BLUE, LAVENDER, FLORAL_WHITE, ALICE_BLUE, GHOST_WHITE, HONEYDEW, IVORY, AZURE, SNOW, BLACK, DIM_GRAY, GRAY, DARK_GRAY, SILVER, LIGHT_GRAY, GAINSBORO, WHITE_SMOKE, WHITE])
 
 
-def gprint(message, rgb="default", new_line=True, rainbow_mode=False):
+def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=False):
     """Allows to print with colors with the given string and array of RGB color code or NAME"""
     if rainbow_mode:
         for char in message:
@@ -184,13 +184,18 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False):
             gprint(message, RANDOMIZED, new_line)
         else:
             code = "\033[38;2;"+rgb[0]+";"+rgb[1]+";"+rgb[2]+"m"
-            if new_line == False:
+            if new_line == False and return_me == False:
                 if rgb == "default":
                     print(message, end= '')
                 else:
                     print(code+message+'\u001b[0m', end = '')
-            elif new_line == True:
+            elif new_line == True and return_me == False:
                 if rgb == "default":
                     print(message)
                 else:
                     print(code+message+'\u001b[0m')
+            if return_me == True:
+                if rgb == "default":
+                    return(message)
+                else:
+                    return(code+message+'\u001b[0m')

@@ -14,8 +14,32 @@ gprint is a Python module that allows to print color on almost any terminal.
 from gprint import *
 ```
 
+## Usage
+
+```python
+gprint(message, rgb, new_line, rainbow_mode)
+```
+message         = String with the text to be printed.
+rgb             = A list of 3 Integers from 0 to 255 that represents every color on rgb scale, a color code (RED, BLUE....) can be used too. Defaults to "default" (white text).
+new_line        = A boolean that represents if you want a new line after the printed text or not. Defaults to True.
+rainbow_mode    = A boolean that allows the command to print every character from a pseudo-randomized color. Defaults to False.
+return_me       = A boolean that allows to return of the colorized text instead of printing it directly (useful for other commands like input() ). Defaults to False.
+
 ## Errors and contact
 
 > guillermo@guillerpsanchez.dev
 
 Feel free to contact me at any time.
+
+## Changelog
+
+> 0.0.1
+    - Initial release
+
+> 0.0.2
+    - Added rainbow_mode
+    - Added new_line
+
+> 0.0.3
+    - Fixed problem with randomized colors.
+    - Added return_me
