@@ -57,3 +57,6 @@ Feel free to contact me at any time.
 > 0.0.5  
     - Updated code with better syntax.  
     - Now runs faster than ever.
+
+> 0.0.6  
+    - Fixed bug with new line on rainbow mode.  

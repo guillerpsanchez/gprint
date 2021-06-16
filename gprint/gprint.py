@@ -184,6 +184,7 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=
             return(temp_string)
         for char in message:
             gprint(char, get_random(), new_line=False)
+        gprint("",new_line=True)
     else:
         if rgb == "RANDOM":
             rgb = get_random()

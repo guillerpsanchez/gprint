@@ -167,3 +167,6 @@ gprint("LIGHT_GREY", LIGHT_GREY)
 gprint("GAINSBORO", GAINSBORO)
 gprint("WHITE_SMOKE", WHITE_SMOKE)
 gprint("WHITE", WHITE)
+
+gprint("RAINBOW TEXT COLOR", new_line=True, rainbow_mode=True, return_me=False)
+print(gprint("RAINBOW TEXT COLOR", new_line=True, rainbow_mode=True, return_me=True))
