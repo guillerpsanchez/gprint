@@ -182,16 +182,15 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=
             for char in message:
                 temp_string = temp_string + gprint(char, get_random(), new_line=False, return_me=True)
             return(temp_string)
-        else:
-            for char in message:
-                gprint(char, get_random(), new_line=False)
+        for char in message:
+            gprint(char, get_random(), new_line=False)
     else:
         if rgb == "RANDOM":
             rgb = get_random()
 
         code = "\033[38;2;"+rgb[0]+";"+rgb[1]+";"+rgb[2]+"m"
 
-        if new_line == False and return_me == False:
+        if new_line is False and return_me is False:
             if rgb == "default":
                 print(message, end= '')
             else:
@@ -204,5 +203,4 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=
         if return_me:
             if rgb == "default":
                 return(message)
-            else:
-                return(code+message+'\u001b[0m')
+            return(code+message+'\u001b[0m')
