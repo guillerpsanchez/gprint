@@ -38,22 +38,22 @@ Feel free to contact me at any time.
 
 ## Changelog
 
-> 0.0.1
+> 0.0.1  
     - Initial release.
 
-> 0.0.2
-    - Added rainbow_mode.
+> 0.0.2  
+    - Added rainbow_mode.  
     - Added new_line.
 
-> 0.0.3
-    - Fixed problem with randomized colors.
+> 0.0.3  
+    - Fixed problem with randomized colors.  
     - Added return_me.
 
-> 0.0.4
-    - Fixed problem with rainbow_mode, now it should work with new_line.
-    - Fixed problem with "RANDOM" string as color, nowit should work faster and with other flags.
+> 0.0.4  
+    - Fixed problem with rainbow_mode, now it should work with new_line.  
+    - Fixed problem with "RANDOM" string as color, nowit should work faster and with other flags.  
     - Added new function to get random color, the program now should work faster.
 
-> 0.0.5
-    - Updated code with better syntax.
+> 0.0.5  
+    - Updated code with better syntax.  
     - Now runs faster than ever.
