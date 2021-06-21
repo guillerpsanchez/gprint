@@ -9,7 +9,7 @@ except ImportError:
 # This call to setup() does all the work
 setuptools.setup(
     name="gprint",
-    version="0.0.6",
+    version="0.0.7",
     description="A fast way to print in color.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

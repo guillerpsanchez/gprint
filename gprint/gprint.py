@@ -1,6 +1,9 @@
 # __main__.py
 from random import choice
 
+class rgb_string_not_valid(Exception):
+    pass
+
 PURE_RED_DARK_4             = ["51","0","0"]
 PURE_RED_DARK_3             = ["102","0","0"]
 PURE_RED_DARK_2             = ["153","0","0"]
@@ -176,32 +179,38 @@ def get_random():
 
 def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=False):
     """Allows to print with colors with the given string and array of RGB color code or NAME"""
-    if rainbow_mode:
-        if return_me:
-            temp_string = ""
+    try:
+        if len(rgb) != 3 and rgb != "default" and rgb != "RANDOM":
+            raise rgb_string_not_valid
+        if rainbow_mode:
+            if return_me:
+                temp_string = ""
+                for char in message:
+                    temp_string = temp_string + gprint(char, get_random(), new_line=False, return_me=True)
+                return(temp_string)
             for char in message:
-                temp_string = temp_string + gprint(char, get_random(), new_line=False, return_me=True)
-            return(temp_string)
-        for char in message:
-            gprint(char, get_random(), new_line=False)
-        gprint("",new_line=True)
-    else:
-        if rgb == "RANDOM":
-            rgb = get_random()
-
-        code = "\033[38;2;"+rgb[0]+";"+rgb[1]+";"+rgb[2]+"m"
-
-        if new_line is False and return_me is False:
-            if rgb == "default":
-                print(message, end= '')
+                gprint(char, get_random(), new_line=False)
+            gprint("",new_line=True)
+        else:
+            if rgb == "RANDOM":
+                rgb = get_random()
             else:
-                print(code+message+'\u001b[0m', end = '')
-        elif new_line and not return_me:
-            if rgb == "default":
-                print(message)
-            else:
-                print(code+message+'\u001b[0m')
-        if return_me:
-            if rgb == "default":
-                return(message)
-            return(code+message+'\u001b[0m')
+                code = "\033[38;2;"+str(rgb[0])+";"+str(rgb[1])+";"+str(rgb[2])+"m"
+                if new_line == False and return_me == False:
+                    if rgb == "default":
+                        print(message, end= '')
+                    else:
+                        print(code+message+'\u001b[0m', end = '')
+                elif new_line == True and return_me == False:
+                    if rgb == "default":
+                        print(message)
+                    else:
+                        print(code+message+'\u001b[0m')
+                if return_me == True:
+                    if rgb == "default":
+                        return(message)
+                    else:
+                        return(code+message+'\u001b[0m') 
+
+    except rgb_string_not_valid:
+        print("Not valid String detected in rgb value, it only can take an array of 3 int ex.[0,0,0], a color code ex. BLUE, RED, GREEN, or either \"RANDOM\" or \"default\".")

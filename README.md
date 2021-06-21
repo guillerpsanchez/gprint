@@ -60,3 +60,7 @@ Feel free to contact me at any time.
 
 > 0.0.6  
     - Fixed bug with new line on rainbow mode.  
+
+> 0.0.7  
+    - Fixed error if a string is provided in rgb.  
+    - Added error handling.  
