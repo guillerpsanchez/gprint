@@ -63,4 +63,7 @@ Feel free to contact me at any time.
 
 > 0.0.7  
     - Fixed error if a string is provided in rgb.  
-    - Added error handling.  
+    - Added error handling. 
+
+> 0.0.8  
+    - Updated and checked compatibility with python 3.10   
