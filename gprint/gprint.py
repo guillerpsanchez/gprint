@@ -1,7 +1,7 @@
 # __main__.py
 from random import choice
 
-class rgb_string_not_valid(Exception):
+class InvalidRGBError(Exception):
     pass
 
 PURE_RED_DARK_4             = ["51","0","0"]
@@ -180,8 +180,8 @@ def get_random():
 def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=False):
     """Allows to print with colors with the given string and array of RGB color code or NAME"""
     try:
-        if len(rgb) != 3 and rgb != "default" and rgb != "RANDOM":
-            raise rgb_string_not_valid
+        if rgb not in ["default","RANDOM"] and (len(rgb) != 3 or not all(0 <= int(x) <= 255 for x in rgb)):
+            raise InvalidRGBError("Invalid RGB code provided")
         if rainbow_mode:
             if return_me:
                 temp_string = ""
@@ -212,5 +212,5 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=
                     else:
                         return(code+message+'\u001b[0m') 
 
-    except rgb_string_not_valid:
-        print("Not valid String detected in rgb value, it only can take an array of 3 int ex.[0,0,0], a color code ex. BLUE, RED, GREEN, or either \"RANDOM\" or \"default\".")
+    except InvalidRGBError:
+        raise InvalidRGBError("Invalid RGB code provided")
