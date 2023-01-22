@@ -68,6 +68,6 @@ Feel free to contact me at any time.
 > 0.0.8  
     - Updated and checked compatibility with python 3.10   
 
-> 0.0.9
-    - Updated test
-    - Updated compability with Python 3.11
+> 0.0.9  
+    - Updated test  
+    - Updated compability with Python 3.11  
