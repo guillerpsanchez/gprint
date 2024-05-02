@@ -8,6 +8,9 @@
 
 gprint is a Python module that allows to print color on almost any terminal.
 
+## Compatibility and Testing
+
+gprint has been updated to ensure compatibility with Python versions 3.5 through 3.11. To verify this compatibility, a comprehensive testing procedure was implemented using GitHub Actions. A matrix strategy was introduced in the `.github/workflows/gprint-tests.yml` workflow to automatically test the module across all supported Python versions upon each push to the main branch. These tests cover a wide range of functionalities provided by gprint, ensuring that the module performs as expected across the different Python versions.
 
 ## How to import
 
