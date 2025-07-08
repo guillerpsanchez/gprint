@@ -16,6 +16,11 @@ def test_rainbow_mode(capsys):
     captured = capsys.readouterr()
     assert captured.out != "Hola mundo\n"
 
+def test_rainbow_no_newline(capsys):
+    gprint("Hola", rainbow_mode=True, new_line=False)
+    captured = capsys.readouterr()
+    assert not captured.out.endswith("\n")
+
 def test_no_newline(capsys):
     gprint("Hola mundo", new_line=False)
     captured = capsys.readouterr()
