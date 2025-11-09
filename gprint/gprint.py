@@ -194,23 +194,26 @@ def gprint(message, rgb="default", new_line=True, rainbow_mode=False, return_me=
         else:
             if rgb == "RANDOM":
                 rgb = get_random()
+
+            if rgb == "default":
+                # Handle default color (no ANSI codes)
+                if return_me:
+                    return message
+                elif new_line:
+                    print(message)
+                else:
+                    print(message, end='')
             else:
+                # Build ANSI color code for RGB values
                 code = "\033[38;2;"+str(rgb[0])+";"+str(rgb[1])+";"+str(rgb[2])+"m"
-                if new_line == False and return_me == False:
-                    if rgb == "default":
-                        print(message, end= '')
-                    else:
-                        print(code+message+'\u001b[0m', end = '')
-                elif new_line == True and return_me == False:
-                    if rgb == "default":
-                        print(message)
-                    else:
-                        print(code+message+'\u001b[0m')
-                if return_me == True:
-                    if rgb == "default":
-                        return(message)
-                    else:
-                        return(code+message+'\u001b[0m') 
+                colored_message = code + message + '\u001b[0m'
+
+                if return_me:
+                    return colored_message
+                elif new_line:
+                    print(colored_message)
+                else:
+                    print(colored_message, end='') 
 
     except InvalidRGBError:
         raise InvalidRGBError("Invalid RGB code provided")
