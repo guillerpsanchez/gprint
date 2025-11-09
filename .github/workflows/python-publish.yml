@@ -5,8 +5,12 @@ name: Upload Python Package
 
 on:
   release:
-    types: [published]
+    types: [created, published]
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      PYPI_API_TOKEN:
+        required: true
 
 permissions:
   contents: read
@@ -14,7 +18,6 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: release
     permissions:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
 

@@ -35,15 +35,16 @@ Homepage = "https://github.com/guillerpsanchez/gprint"
 "Source Code" = "https://github.com/guillerpsanchez/gprint"
 "Documentation" = "https://github.com/guillerpsanchez/gprint#readme"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["gprint*"]
-exclude = ["tests*"]
+[tool.setuptools]
+packages = ["gprint"]
+
+[tool.setuptools.package-data]
+gprint = ["py.typed"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
 addopts = "-ra -q --strict-markers"
-testpaths = ["gprint"]
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]

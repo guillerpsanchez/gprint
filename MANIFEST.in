@@ -1,0 +1,16 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+include requirements.txt
+
+# Include source files
+recursive-include gprint *.py
+
+# Exclude test files
+global-exclude test_*.py
+global-exclude *_test.py
+global-exclude __pycache__
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .pytest_cache

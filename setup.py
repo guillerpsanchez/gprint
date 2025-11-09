@@ -5,14 +5,20 @@ This setup.py is maintained for backwards compatibility.
 Modern configuration is in pyproject.toml.
 """
 
+import pathlib
+
 import setuptools
+
+# Read the README file using a context manager
+HERE = pathlib.Path(__file__).parent
+README = (HERE / "README.md").read_text(encoding="utf-8")
 
 if __name__ == "__main__":
     setuptools.setup(
         name="gprint",
         version="0.0.9",
         description="A fast way to print in color.",
-        long_description=open("README.md", encoding="utf-8").read(),
+        long_description=README,
         long_description_content_type="text/markdown",
         url="https://github.com/guillerpsanchez/gprint",
         author="Guillermo Peñarando Sánchez",
@@ -33,7 +39,7 @@ if __name__ == "__main__":
             "Topic :: Software Development :: Libraries :: Python Modules",
             "Topic :: Terminals",
         ],
-        packages=setuptools.find_packages(exclude=["tests", "tests.*"]),
+        packages=["gprint"],
         include_package_data=True,
         python_requires=">=3.8",
         keywords=["color", "print", "terminal", "console", "ansi", "rgb"],
