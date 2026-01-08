@@ -1,4 +1,5 @@
 # __init__.py
 from .gprint import *
+
 # Version of gprint
-__version__ = "0.0.9"
+__version__ = "0.1.0"
