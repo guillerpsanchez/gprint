@@ -21,7 +21,7 @@ gprint supports Python 3.8 through 3.13. Compatibility is verified through autom
 ## Quick Start
 
 ```python
-from gprint import *
+from gprint import gprint, RED, BLUE, CYAN
 
 # Basic usage - default color
 gprint("Hello World!")
@@ -30,8 +30,9 @@ gprint("Hello World!")
 gprint("This is red!", RED)
 gprint("This is blue!", BLUE)
 
-# Using custom RGB values
-gprint("Custom orange!", [255, 165, 0])
+# Using custom RGB values (lists or tuples)
+gprint("Custom orange!", (255, 165, 0))
+gprint("Also works!", [255, 165, 0])
 
 # Rainbow mode - each character in a random color
 gprint("Rainbow text!", rainbow_mode=True)
@@ -51,28 +52,49 @@ name = input(gprint("Enter your name: ", CYAN, return_me=True))
 
 ### `gprint(message, rgb, new_line, rainbow_mode, return_me)`
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `message` | str | required | The text to be printed |
-| `rgb` | list/str | `"default"` | Color specification (see below) |
-| `new_line` | bool | `True` | Print newline after the message |
-| `rainbow_mode` | bool | `False` | Print each character in a random color |
-| `return_me` | bool | `False` | Return the string instead of printing |
+| Parameter      | Type              | Default     | Description                                    |
+| -------------- | ----------------- | ----------- | ---------------------------------------------- |
+| `message`      | `str`             | *required*  | The text to be printed                         |
+| `rgb`          | `tuple/list/str`  | `"default"` | Color specification (see below)                |
+| `new_line`     | `bool`            | `True`      | Print newline after the message                |
+| `rainbow_mode` | `bool`            | `False`     | Print each character in a random color         |
+| `return_me`    | `bool`            | `False`     | Return the string instead of printing          |
 
 #### Color Options (`rgb` parameter)
 
-- `"default"` - Uses terminal default color
-- `"RANDOM"` - Uses a random color from the palette
-- `[R, G, B]` - List of 3 integers (0-255) for custom colors
-- Predefined constants - See available colors below
+- `"default"` — Uses terminal default color
+- `"RANDOM"` — Uses a random color from the palette
+- `(R, G, B)` or `[R, G, B]` — 3 integers (0-255) for custom colors
+- Predefined constants — See available colors below
 
 ### `get_random()`
 
-Returns a random color from the available color palette as an RGB list.
+Returns a random color from the available color palette as an RGB tuple.
 
 ```python
-color = get_random()  # Returns something like [255, 0, 0]
+from gprint import get_random
+
+color = get_random()  # Returns something like (255, 0, 0)
 ```
+
+### `COLOR_NAMES`
+
+A dictionary mapping color name strings to their RGB values. Useful for
+programmatic color lookup.
+
+```python
+from gprint import COLOR_NAMES
+
+print(COLOR_NAMES["RED"])    # (255, 0, 0)
+print(COLOR_NAMES["CORAL"])  # (255, 127, 80)
+```
+
+### Exceptions
+
+| Exception        | Inherits from           | Description                              |
+| ---------------- | ----------------------- | ---------------------------------------- |
+| `GprintError`    | `Exception`             | Base class for all gprint errors         |
+| `InvalidRGBError`| `GprintError, ValueError` | Raised when an invalid RGB value is given |
 
 ## Available Colors
 
@@ -110,6 +132,23 @@ color = get_random()  # Returns something like [255, 0, 0]
 Feel free to contact me at any time.
 
 ## Changelog
+
+> 0.2.0
+- **Breaking**: Color constants are now immutable tuples instead of lists
+- **Breaking**: RGB validation now strictly requires `int` values (strings and booleans rejected)
+- Migrated project metadata to `pyproject.toml` (PEP 621)
+- Split monolithic module into `_colors`, `_core`, and `_exceptions` submodules
+- Added `__all__` for clean `from gprint import *` behavior
+- Added `GprintError` base exception class
+- Added `COLOR_NAMES` dictionary for programmatic color lookup
+- Added `CHARTREUSE` (fixed typo from `CHART_REUSE`; old name kept as alias)
+- Added `py.typed` marker (PEP 561) for type checker support
+- Improved error messages with specific component details
+- Improved type annotations (`Tuple[int, int, int]` instead of `List[int]`)
+- Consistent ANSI escape sequence notation
+- Moved tests to dedicated `tests/` directory
+- Removed `NONE` color alias (was identical to `WHITE`)
+- Added `conftest.py` with shared test fixtures
 
 > 0.1.0
 - Major code refactoring and cleanup

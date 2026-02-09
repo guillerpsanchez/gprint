@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel>=0.41.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gprint"
+version = "0.2.0"
+description = "A fast way to print colored text to the terminal."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    { name = "Guillermo Peñarando Sánchez", email = "guillermo@guillerpsanchez.dev" },
+]
+keywords = ["color", "terminal", "print", "ansi", "rgb", "console"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Utilities",
+    "Topic :: Terminals",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/guillerpsanchez/gprint"
+Repository = "https://github.com/guillerpsanchez/gprint"
+Issues = "https://github.com/guillerpsanchez/gprint/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "mypy>=1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["gprint*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-v", "--strict-markers", "--tb=short"]
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

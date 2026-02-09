@@ -1,0 +1,257 @@
+"""Color constants for the gprint module.
+
+All colors are defined as immutable tuples of ``(R, G, B)`` values where each
+component is an integer in the range 0-255.  Colors follow standard web color
+naming conventions and are organized by hue family.
+"""
+
+from __future__ import annotations
+
+from typing import Dict, Tuple
+
+# ── Type alias ───────────────────────────────────────────────────────────────
+
+RGBColor = Tuple[int, int, int]
+
+# ── Pure-red variations (dark → light) ───────────────────────────────────────
+
+PURE_RED_DARK_4: RGBColor = (51, 0, 0)
+PURE_RED_DARK_3: RGBColor = (102, 0, 0)
+PURE_RED_DARK_2: RGBColor = (153, 0, 0)
+PURE_RED_DARK_1: RGBColor = (204, 0, 0)
+PURE_RED: RGBColor = (255, 0, 0)
+PURE_RED_LIGHT_1: RGBColor = (255, 51, 51)
+PURE_RED_LIGHT_2: RGBColor = (255, 102, 102)
+PURE_RED_LIGHT_3: RGBColor = (255, 153, 153)
+PURE_RED_LIGHT_4: RGBColor = (255, 204, 204)
+
+# ── Orange variations (dark → light) ────────────────────────────────────────
+
+ORANGE_DARK_4: RGBColor = (51, 25, 0)
+ORANGE_DARK_3: RGBColor = (102, 51, 0)
+ORANGE_DARK_2: RGBColor = (153, 76, 0)
+ORANGE_DARK_1: RGBColor = (204, 102, 0)
+ORANGE_LIGHT_1: RGBColor = (255, 153, 51)
+ORANGE_LIGHT_2: RGBColor = (255, 178, 102)
+ORANGE_LIGHT_3: RGBColor = (255, 204, 153)
+ORANGE_LIGHT_4: RGBColor = (255, 229, 204)
+
+# ── Pure primaries ───────────────────────────────────────────────────────────
+
+PURE_GREEN: RGBColor = (0, 255, 0)
+PURE_BLUE: RGBColor = (0, 0, 255)
+
+# ── Standard web colors ─────────────────────────────────────────────────────
+
+# Reds & pinks
+MAROON: RGBColor = (128, 0, 0)
+DARK_RED: RGBColor = (139, 0, 0)
+BROWN: RGBColor = (165, 42, 42)
+FIREBRICK: RGBColor = (178, 34, 34)
+CRIMSON: RGBColor = (220, 20, 60)
+RED: RGBColor = (255, 0, 0)
+TOMATO: RGBColor = (255, 99, 71)
+CORAL: RGBColor = (255, 127, 80)
+INDIAN_RED: RGBColor = (205, 92, 92)
+LIGHT_CORAL: RGBColor = (240, 128, 128)
+DARK_SALMON: RGBColor = (233, 150, 122)
+SALMON: RGBColor = (250, 128, 114)
+LIGHT_SALMON: RGBColor = (255, 160, 122)
+ORANGE_RED: RGBColor = (255, 69, 0)
+
+# Oranges & yellows
+DARK_ORANGE: RGBColor = (255, 140, 0)
+ORANGE: RGBColor = (255, 165, 0)
+GOLD: RGBColor = (255, 215, 0)
+DARK_GOLDEN_ROD: RGBColor = (184, 134, 11)
+GOLDEN_ROD: RGBColor = (218, 165, 32)
+PALE_GOLDEN_ROD: RGBColor = (238, 232, 170)
+DARK_KHAKI: RGBColor = (189, 183, 107)
+KHAKI: RGBColor = (240, 230, 140)
+OLIVE: RGBColor = (128, 128, 0)
+YELLOW: RGBColor = (255, 255, 0)
+LEMON_CHIFFON: RGBColor = (255, 250, 205)
+LIGHT_GOLDEN_ROD_YELLOW: RGBColor = (250, 250, 210)
+LIGHT_YELLOW: RGBColor = (255, 255, 224)
+
+# Greens
+YELLOW_GREEN: RGBColor = (154, 205, 50)
+DARK_OLIVE_GREEN: RGBColor = (85, 107, 47)
+OLIVE_DRAB: RGBColor = (107, 142, 35)
+LAWN_GREEN: RGBColor = (124, 252, 0)
+CHARTREUSE: RGBColor = (127, 255, 0)
+GREEN_YELLOW: RGBColor = (173, 255, 47)
+DARK_GREEN: RGBColor = (0, 100, 0)
+GREEN: RGBColor = (0, 128, 0)
+FOREST_GREEN: RGBColor = (34, 139, 34)
+LIME: RGBColor = (0, 255, 0)
+LIME_GREEN: RGBColor = (50, 205, 50)
+LIGHT_GREEN: RGBColor = (144, 238, 144)
+PALE_GREEN: RGBColor = (152, 251, 152)
+DARK_SEA_GREEN: RGBColor = (143, 188, 143)
+MEDIUM_SPRING_GREEN: RGBColor = (0, 250, 154)
+SPRING_GREEN: RGBColor = (0, 255, 127)
+SEA_GREEN: RGBColor = (46, 139, 87)
+MEDIUM_AQUA_MARINE: RGBColor = (102, 205, 170)
+MEDIUM_SEA_GREEN: RGBColor = (60, 179, 113)
+LIGHT_SEA_GREEN: RGBColor = (32, 178, 170)
+
+# Cyans & teals
+DARK_SLATE_GRAY: RGBColor = (47, 79, 79)
+TEAL: RGBColor = (0, 128, 128)
+DARK_CYAN: RGBColor = (0, 139, 139)
+AQUA: RGBColor = (0, 255, 255)
+CYAN: RGBColor = (0, 255, 255)
+LIGHT_CYAN: RGBColor = (224, 255, 255)
+DARK_TURQUOISE: RGBColor = (0, 206, 209)
+TURQUOISE: RGBColor = (64, 224, 208)
+MEDIUM_TURQUOISE: RGBColor = (72, 209, 204)
+PALE_TURQUOISE: RGBColor = (175, 238, 238)
+AQUA_MARINE: RGBColor = (127, 255, 212)
+
+# Blues
+POWDER_BLUE: RGBColor = (176, 224, 230)
+CADET_BLUE: RGBColor = (95, 158, 160)
+STEEL_BLUE: RGBColor = (70, 130, 180)
+CORN_FLOWER_BLUE: RGBColor = (100, 149, 237)
+DEEP_SKY_BLUE: RGBColor = (0, 191, 255)
+DODGER_BLUE: RGBColor = (30, 144, 255)
+LIGHT_BLUE: RGBColor = (173, 216, 230)
+SKY_BLUE: RGBColor = (135, 206, 235)
+LIGHT_SKY_BLUE: RGBColor = (135, 206, 250)
+MIDNIGHT_BLUE: RGBColor = (25, 25, 112)
+NAVY: RGBColor = (0, 0, 128)
+DARK_BLUE: RGBColor = (0, 0, 139)
+MEDIUM_BLUE: RGBColor = (0, 0, 205)
+BLUE: RGBColor = (0, 0, 255)
+ROYAL_BLUE: RGBColor = (65, 105, 225)
+
+# Purples & violets
+BLUE_VIOLET: RGBColor = (138, 43, 226)
+INDIGO: RGBColor = (75, 0, 130)
+DARK_SLATE_BLUE: RGBColor = (72, 61, 139)
+SLATE_BLUE: RGBColor = (106, 90, 205)
+MEDIUM_SLATE_BLUE: RGBColor = (123, 104, 238)
+MEDIUM_PURPLE: RGBColor = (147, 112, 219)
+DARK_MAGENTA: RGBColor = (139, 0, 139)
+DARK_VIOLET: RGBColor = (148, 0, 211)
+DARK_ORCHID: RGBColor = (153, 50, 204)
+MEDIUM_ORCHID: RGBColor = (186, 85, 211)
+PURPLE: RGBColor = (128, 0, 128)
+THISTLE: RGBColor = (216, 191, 216)
+PLUM: RGBColor = (221, 160, 221)
+VIOLET: RGBColor = (238, 130, 238)
+MAGENTA: RGBColor = (255, 0, 255)
+FUCHSIA: RGBColor = (255, 0, 255)
+ORCHID: RGBColor = (218, 112, 214)
+
+# Pinks
+MEDIUM_VIOLET_RED: RGBColor = (199, 21, 133)
+PALE_VIOLET_RED: RGBColor = (219, 112, 147)
+DEEP_PINK: RGBColor = (255, 20, 147)
+HOT_PINK: RGBColor = (255, 105, 180)
+LIGHT_PINK: RGBColor = (255, 182, 193)
+PINK: RGBColor = (255, 192, 203)
+
+# Neutrals & whites
+ANTIQUE_WHITE: RGBColor = (250, 235, 215)
+BEIGE: RGBColor = (245, 245, 220)
+BISQUE: RGBColor = (255, 228, 196)
+BLANCHED_ALMOND: RGBColor = (255, 235, 205)
+WHEAT: RGBColor = (245, 222, 179)
+CORN_SILK: RGBColor = (255, 248, 220)
+LEMON_CHIFFON: RGBColor = (255, 250, 205)
+LIGHT_GOLDEN_ROD_YELLOW: RGBColor = (250, 250, 210)
+LIGHT_YELLOW: RGBColor = (255, 255, 224)
+
+# Browns & earth tones
+SADDLE_BROWN: RGBColor = (139, 69, 19)
+SIENNA: RGBColor = (160, 82, 45)
+CHOCOLATE: RGBColor = (210, 105, 30)
+PERU: RGBColor = (205, 133, 63)
+SANDY_BROWN: RGBColor = (244, 164, 96)
+BURLY_WOOD: RGBColor = (222, 184, 135)
+TAN: RGBColor = (210, 180, 140)
+ROSY_BROWN: RGBColor = (188, 143, 143)
+MOCCASIN: RGBColor = (255, 228, 181)
+NAVAJO_WHITE: RGBColor = (255, 222, 173)
+PEACH_PUFF: RGBColor = (255, 218, 185)
+MISTY_ROSE: RGBColor = (255, 228, 225)
+LAVENDER_BLUSH: RGBColor = (255, 240, 245)
+LINEN: RGBColor = (250, 240, 230)
+OLD_LACE: RGBColor = (253, 245, 230)
+PAPAYA_WHIP: RGBColor = (255, 239, 213)
+SEA_SHELL: RGBColor = (255, 245, 238)
+MINT_CREAM: RGBColor = (245, 255, 250)
+
+# Grays
+SLATE_GRAY: RGBColor = (112, 128, 144)
+LIGHT_SLATE_GRAY: RGBColor = (119, 136, 153)
+LIGHT_STEEL_BLUE: RGBColor = (176, 196, 222)
+LAVENDER: RGBColor = (230, 230, 250)
+FLORAL_WHITE: RGBColor = (255, 250, 240)
+ALICE_BLUE: RGBColor = (240, 248, 255)
+GHOST_WHITE: RGBColor = (248, 248, 255)
+HONEYDEW: RGBColor = (240, 255, 240)
+IVORY: RGBColor = (255, 255, 240)
+AZURE: RGBColor = (240, 255, 255)
+SNOW: RGBColor = (255, 250, 250)
+BLACK: RGBColor = (0, 0, 0)
+DIM_GRAY: RGBColor = (105, 105, 105)
+DIM_GREY: RGBColor = (105, 105, 105)
+GRAY: RGBColor = (128, 128, 128)
+GREY: RGBColor = (128, 128, 128)
+DARK_GRAY: RGBColor = (169, 169, 169)
+DARK_GREY: RGBColor = (169, 169, 169)
+SILVER: RGBColor = (192, 192, 192)
+LIGHT_GRAY: RGBColor = (211, 211, 211)
+LIGHT_GREY: RGBColor = (211, 211, 211)
+GAINSBORO: RGBColor = (220, 220, 220)
+WHITE_SMOKE: RGBColor = (245, 245, 245)
+WHITE: RGBColor = (255, 255, 255)
+
+# ── Backward-compatibility aliases ───────────────────────────────────────────
+
+#: .. deprecated:: 0.2.0
+#:    Use :data:`CHARTREUSE` instead.
+CHART_REUSE: RGBColor = CHARTREUSE
+
+# ── Palette for random selection ─────────────────────────────────────────────
+
+ALL_COLORS: Tuple[RGBColor, ...] = (
+    MAROON, DARK_RED, BROWN, FIREBRICK, CRIMSON, RED, TOMATO, CORAL,
+    INDIAN_RED, LIGHT_CORAL, DARK_SALMON, SALMON, LIGHT_SALMON, ORANGE_RED,
+    DARK_ORANGE, ORANGE, GOLD, DARK_GOLDEN_ROD, GOLDEN_ROD, PALE_GOLDEN_ROD,
+    DARK_KHAKI, KHAKI, OLIVE, YELLOW, YELLOW_GREEN, DARK_OLIVE_GREEN,
+    OLIVE_DRAB, LAWN_GREEN, CHARTREUSE, GREEN_YELLOW, DARK_GREEN, GREEN,
+    FOREST_GREEN, LIME, LIME_GREEN, LIGHT_GREEN, PALE_GREEN, DARK_SEA_GREEN,
+    MEDIUM_SPRING_GREEN, SPRING_GREEN, SEA_GREEN, MEDIUM_AQUA_MARINE,
+    MEDIUM_SEA_GREEN, LIGHT_SEA_GREEN, DARK_SLATE_GRAY, TEAL, DARK_CYAN,
+    AQUA, CYAN, LIGHT_CYAN, DARK_TURQUOISE, TURQUOISE, MEDIUM_TURQUOISE,
+    PALE_TURQUOISE, AQUA_MARINE, POWDER_BLUE, CADET_BLUE, STEEL_BLUE,
+    CORN_FLOWER_BLUE, DEEP_SKY_BLUE, DODGER_BLUE, LIGHT_BLUE, SKY_BLUE,
+    LIGHT_SKY_BLUE, MIDNIGHT_BLUE, NAVY, DARK_BLUE, MEDIUM_BLUE, BLUE,
+    ROYAL_BLUE, BLUE_VIOLET, INDIGO, DARK_SLATE_BLUE, SLATE_BLUE,
+    MEDIUM_SLATE_BLUE, MEDIUM_PURPLE, DARK_MAGENTA, DARK_VIOLET, DARK_ORCHID,
+    MEDIUM_ORCHID, PURPLE, THISTLE, PLUM, VIOLET, MAGENTA, ORCHID,
+    MEDIUM_VIOLET_RED, PALE_VIOLET_RED, DEEP_PINK, HOT_PINK, LIGHT_PINK,
+    PINK, ANTIQUE_WHITE, BEIGE, BISQUE, BLANCHED_ALMOND, WHEAT, CORN_SILK,
+    LEMON_CHIFFON, LIGHT_GOLDEN_ROD_YELLOW, LIGHT_YELLOW, SADDLE_BROWN,
+    SIENNA, CHOCOLATE, PERU, SANDY_BROWN, BURLY_WOOD, TAN, ROSY_BROWN,
+    MOCCASIN, NAVAJO_WHITE, PEACH_PUFF, MISTY_ROSE, LAVENDER_BLUSH, LINEN,
+    OLD_LACE, PAPAYA_WHIP, SEA_SHELL, MINT_CREAM, SLATE_GRAY,
+    LIGHT_SLATE_GRAY, LIGHT_STEEL_BLUE, LAVENDER, FLORAL_WHITE, ALICE_BLUE,
+    GHOST_WHITE, HONEYDEW, IVORY, AZURE, SNOW, BLACK, DIM_GRAY, GRAY,
+    DARK_GRAY, SILVER, LIGHT_GRAY, GAINSBORO, WHITE_SMOKE, WHITE,
+)
+
+# ── Name → color lookup ─────────────────────────────────────────────────────
+
+COLOR_NAMES: Dict[str, RGBColor] = {
+    name: value
+    for name, value in globals().items()
+    if isinstance(value, tuple)
+    and len(value) == 3
+    and not name.startswith("_")
+    and name not in ("RGBColor", "ALL_COLORS", "COLOR_NAMES")
+}
