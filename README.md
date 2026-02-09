@@ -16,7 +16,7 @@ pip install gprint
 
 ## Compatibility
 
-gprint supports Python 3.8 through 3.13. Compatibility is verified through automated testing using GitHub Actions on each push to the main branch.
+gprint supports Python 3.9 through 3.13. Compatibility is verified through automated testing using GitHub Actions on each push to the main branch.
 
 ## Quick Start
 

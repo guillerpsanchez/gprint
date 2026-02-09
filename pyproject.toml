@@ -8,7 +8,7 @@ version = "0.2.0"
 description = "A fast way to print colored text to the terminal."
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
     { name = "Guillermo Peñarando Sánchez", email = "guillermo@guillerpsanchez.dev" },
 ]
@@ -16,7 +16,6 @@ keywords = ["color", "terminal", "print", "ansi", "rgb", "console"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -49,7 +48,7 @@ testpaths = ["tests"]
 addopts = ["-v", "--strict-markers", "--tb=short"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
